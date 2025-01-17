@@ -14,13 +14,13 @@ void Clock(char mode){//mode is either c or w
       time(&rawtime);
       time_ = localtime(&rawtime);
       if(mode == 'c'){
-	if(time_->tm_hour >= 19 || time_->tm_hour < 6){//night
+	if(time_->tm_hour >= 21 || time_->tm_hour < 6){//night
 	  printf("\033[1;96m");//sets color to cyan
 	  printf("%i:%.2i:%.2i", time_->tm_hour, time_->tm_min, time_->tm_sec);
 	  Sleep(1000);//waits 1s
 	  system("cls");//refreshes the 'screen' (terminal)
 	}
-	else if((time_->tm_hour >= 6 || time_->tm_hour < 8)||(time_->tm_hour >= 6 || time_->tm_hour < 8)){//dusk/dawn
+	else if((time_->tm_hour >= 6 || time_->tm_hour < 8)||(time_->tm_hour >= 19 || time_->tm_hour < 21)){//dusk/dawn
 	  printf("\033[1;93m");//sets color to yellow
 	  printf("%i:%.2i:%.2i", time_->tm_hour, time_->tm_min, time_->tm_sec);
 	  Sleep(1000);//waits 1s
